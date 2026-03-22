@@ -1,0 +1,57 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #09090B;
+  --surface: #111113;
+  --surface2: #18181B;
+  --surface3: #1F1F23;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.14);
+  --jade: #00C896;
+  --jade-dim: rgba(0,200,150,0.1);
+  --jade-border: rgba(0,200,150,0.25);
+  --flame: #FF4D00;
+  --flame-dim: rgba(255,77,0,0.08);
+  --flame-border: rgba(255,77,0,0.2);
+  --gold: #FFB800;
+  --text1: #FAFAFA;
+  --text2: #A1A1AA;
+  --text3: #52525B;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3);
+}
+
+[data-theme="light"] {
+  --bg: #F8F9FA;
+  --surface: #FFFFFF;
+  --surface2: #F1F3F5;
+  --surface3: #E9ECEF;
+  --border: rgba(0,0,0,0.07);
+  --border-hover: rgba(0,0,0,0.14);
+  --jade: #00A37A;
+  --jade-dim: rgba(0,163,122,0.08);
+  --jade-border: rgba(0,163,122,0.2);
+  --flame: #E03E00;
+  --flame-dim: rgba(224,62,0,0.07);
+  --flame-border: rgba(224,62,0,0.18);
+  --gold: #C98A00;
+  --text1: #0A0A0B;
+  --text2: #52525B;
+  --text3: #A1A1AA;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.07);
+}
+
+html, body { height: 100%; background: var(--bg); color: var(--text1); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background 0.3s ease, color 0.3s ease; }
+#root { min-height: 100vh; }
+::selection { background: var(--jade-dim); color: var(--jade); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface3); border-radius: 2px; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes spin { to { transform:rotate(360deg); } }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes gridScroll { from{transform:translateY(0)} to{transform:translateY(-50%)} }
+@keyframes shimmer { 0%{opacity:0.3} 50%{opacity:0.7} 100%{opacity:0.3} }
