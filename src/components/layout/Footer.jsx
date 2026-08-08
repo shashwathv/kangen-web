@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer style={{
       borderTop: "1px solid var(--border)",
-      padding: "2rem",
+      padding: "2.5rem 2rem",
       marginTop: "4rem",
     }}>
       <div style={{
@@ -12,15 +12,15 @@ export default function Footer() {
         display: "flex", alignItems: "center", justifyContent: "space-between",
         flexWrap: "wrap", gap: "1rem",
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}>
           <div style={{
-            width: 24, height: 24, background: "var(--jade)", borderRadius: 5,
+            width: 24, height: 24, background: "var(--seal)", borderRadius: 5,
             display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 11, fontWeight: 900, color: "#fff",
+            fontSize: 11, fontWeight: 700, color: "#F5F0E6", fontFamily: "var(--font-display)",
           }}>
             漢
           </div>
-          <span style={{ fontWeight: 700, fontSize: "0.88rem", letterSpacing: "-0.02em" }}>
+          <span style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "0.92rem", letterSpacing: "-0.01em" }}>
             KanGen
           </span>
           <span style={{ color: "var(--text3)", fontSize: "0.8rem" }}>
