@@ -4,11 +4,11 @@ export default function ErrorView({ message, onReset }) {
       animation: "fadeUp 0.4s cubic-bezier(0.16,1,0.3,1) forwards",
       background: "var(--flame-dim)",
       border: "1px solid var(--flame-border)",
-      borderRadius: 16, padding: "2rem", textAlign: "center",
+      borderRadius: 12, padding: "2rem", textAlign: "center",
     }}>
       <div style={{
-        width: 48, height: 48, borderRadius: 12,
-        background: "rgba(255,77,0,0.15)",
+        width: 48, height: 48, borderRadius: 10,
+        background: "var(--flame-dim)",
         display: "flex", alignItems: "center", justifyContent: "center",
         fontSize: 22, margin: "0 auto 1rem",
         border: "1px solid var(--flame-border)",
@@ -16,8 +16,8 @@ export default function ErrorView({ message, onReset }) {
         ✕
       </div>
       <h3 style={{
-        fontWeight: 700, fontSize: "1rem",
-        marginBottom: "0.4rem", letterSpacing: "-0.02em",
+        fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.2rem",
+        marginBottom: "0.4rem", letterSpacing: "-0.01em",
       }}>
         Processing failed
       </h3>
@@ -31,7 +31,7 @@ export default function ErrorView({ message, onReset }) {
         onClick={onReset}
         style={{
           background: "var(--flame)", color: "#fff", border: "none",
-          padding: "0.7rem 1.75rem", borderRadius: 8, cursor: "pointer",
+          padding: "0.7rem 1.75rem", borderRadius: 7, cursor: "pointer",
           fontWeight: 700, fontSize: "0.88rem",
           fontFamily: "var(--font-body)", transition: "opacity 0.15s",
         }}
