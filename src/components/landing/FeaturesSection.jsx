@@ -1,48 +1,48 @@
 const FEATURES = [
   {
-    icon: "🎯",
-    title: "Layout-agnostic extraction",
-    desc: "Doesn't try to parse table borders or columns. Uses each kanji character as a spatial anchor — works on any layout.",
+    icon: "👁️",
+    title: "Reads the page directly",
+    desc: "A multimodal vision model looks at your photo and understands it — no brittle character-by-character OCR that breaks on real textbook layouts.",
     tag: "Core tech",
     tagColor: "var(--jade)",
     tagBg: "var(--jade-dim)",
     tagBorder: "var(--jade-border)",
   },
   {
-    icon: "📖",
-    title: "Dictionary-first, AI-second",
-    desc: "SudachiPy provides ground-truth readings. Gemini can polish meanings but cannot invent or override what the dictionary says.",
-    tag: "No hallucinations",
+    icon: "✏️",
+    title: "Ignores stroke diagrams",
+    desc: "Stroke-order guides and practice grids that confuse traditional OCR are understood as diagrams and skipped — only real vocabulary becomes cards.",
+    tag: "Smart parsing",
     tagColor: "var(--jade)",
     tagBg: "var(--jade-dim)",
     tagBorder: "var(--jade-border)",
   },
   {
     icon: "⚡",
-    title: "Single batched API call",
-    desc: "All kanji from your image go to Gemini in one request — stays well within free tier quota regardless of deck size.",
+    title: "One call per page",
+    desc: "Every kanji on your image is extracted in a single request — fast, and comfortably within free-tier limits regardless of how many kanji are on the page.",
     tag: "Efficient",
-    tagColor: "#818CF8",
-    tagBg: "rgba(129,140,248,0.1)",
-    tagBorder: "rgba(129,140,248,0.25)",
+    tagColor: "var(--seal)",
+    tagBg: "var(--seal-dim)",
+    tagBorder: "var(--seal-border)",
   },
   {
     icon: "🔄",
     title: "Fails safely, always",
-    desc: "No API key? Falls back to dictionary-only. One card fails? The rest still process. No silent errors, no misleading cards.",
+    desc: "A blurry photo or a card that can't be parsed won't crash the run — the rest still process, and you see exactly what came through.",
     tag: "Resilient",
     tagColor: "var(--gold)",
     tagBg: "var(--gold-dim)",
-    tagBorder: "rgba(255,184,0,0.25)",
+    tagBorder: "var(--gold-border)",
   },
   {
     icon: "📱",
     title: "Anki + AnkiDroid native",
     desc: "Exports standard .apkg files. Open it on your phone and AnkiDroid imports automatically — no extra steps.",
     tag: "Compatible",
-    tagColor: "#818CF8",
-    tagBg: "rgba(129,140,248,0.1)",
-    tagBorder: "rgba(129,140,248,0.25)",
+    tagColor: "var(--seal)",
+    tagBg: "var(--seal-dim)",
+    tagBorder: "var(--seal-border)",
   },
   {
     icon: "🆓",
@@ -65,13 +65,15 @@ export default function FeaturesSection() {
         fontSize: "0.68rem", color: "var(--text3)",
         textTransform: "uppercase", letterSpacing: "0.12em",
         fontWeight: 600, marginBottom: "0.6rem",
+        fontFamily: "var(--font-mono)",
       }}>
         Why KanGen
       </p>
       <h2 style={{
-        fontSize: "1.6rem", fontWeight: 800,
-        letterSpacing: "-0.03em", marginBottom: "2.5rem",
-        maxWidth: 500,
+        fontFamily: "var(--font-display)",
+        fontSize: "clamp(1.7rem, 3vw, 2.15rem)", fontWeight: 600,
+        letterSpacing: "-0.01em", marginBottom: "2.5rem",
+        maxWidth: 500, lineHeight: 1.15,
       }}>
         Built to be reliable,<br />not just impressive
       </h2>
@@ -84,7 +86,7 @@ export default function FeaturesSection() {
         {FEATURES.map(f => (
           <div key={f.title} style={{
             background: "var(--surface)", border: "1px solid var(--border)",
-            borderRadius: 14, padding: "1.5rem",
+            borderRadius: 10, padding: "1.5rem",
             boxShadow: "var(--shadow-card)", transition: "border-color 0.2s, transform 0.2s",
           }}
             onMouseOver={e => { e.currentTarget.style.borderColor = "var(--border-hover)"; e.currentTarget.style.transform = "translateY(-2px)"; }}

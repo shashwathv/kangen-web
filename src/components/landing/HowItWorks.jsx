@@ -1,8 +1,8 @@
 const STEPS = [
   { num: "01", icon: "📷", title: "Snap", desc: "Photograph any kanji study sheet, textbook page, or handout." },
-  { num: "02", icon: "🔍", title: "Extract", desc: "PaddleOCR reads every character with bounding box precision." },
-  { num: "03", icon: "📖", title: "Validate", desc: "SudachiPy checks every reading against a real Japanese dictionary." },
-  { num: "04", icon: "✨", title: "Enhance", desc: "Gemini AI polishes meanings and generates example sentences." },
+  { num: "02", icon: "👁️", title: "Read", desc: "A vision model reads the whole page at once, ignoring stroke-order diagrams and practice grids." },
+  { num: "03", icon: "🎴", title: "Extract", desc: "Every study kanji becomes a card with meaning, readings, and an example sentence." },
+  { num: "04", icon: "✏️", title: "Review", desc: "Check the generated cards and fix anything before exporting — you stay in control." },
   { num: "05", icon: "📦", title: "Export", desc: "Download a .apkg file ready to import in Anki or AnkiDroid." },
 ];
 
@@ -17,6 +17,7 @@ export default function HowItWorks() {
         fontSize: "0.68rem", color: "var(--text3)",
         textTransform: "uppercase", letterSpacing: "0.12em",
         fontWeight: 600, marginBottom: "2rem",
+        fontFamily: "var(--font-mono)",
       }}>
         How it works
       </p>
@@ -29,12 +30,19 @@ export default function HowItWorks() {
           }}>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
               <div style={{
-                width: 36, height: 36, borderRadius: 9,
+                position: "relative", width: 36, height: 36, borderRadius: 8,
                 background: "var(--surface2)", border: "1px solid var(--border-hover)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 16, flexShrink: 0,
               }}>
                 {step.icon}
+                <span style={{
+                  position: "absolute", top: -6, right: -8,
+                  fontSize: "0.58rem", color: "var(--text3)", fontFamily: "var(--font-mono)",
+                  background: "var(--bg)", padding: "0 2px",
+                }}>
+                  {step.num}
+                </span>
               </div>
               {i < STEPS.length - 1 && (
                 <div style={{ width: 1, flex: 1, background: "var(--border)", marginTop: 4, minHeight: 20 }} />
