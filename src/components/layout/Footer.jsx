@@ -21,7 +21,7 @@ export default function Footer() {
             漢
           </div>
           <span style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "0.92rem", letterSpacing: "-0.01em" }}>
-            KanGen
+            Kanzen
           </span>
           <span style={{ color: "var(--text3)", fontSize: "0.8rem" }}>
             — Free forever, open source
@@ -32,7 +32,7 @@ export default function Footer() {
           {[
             { label: "Tool", to: "/app" },
             { label: "Dashboard", to: "/dashboard" },
-            { label: "GitHub", to: "https://github.com/shashwathv/KanGen", external: true },
+            { label: "GitHub", to: "https://github.com/shashwathv/KanZen", external: true },
           ].map(l => (
             l.external
               ? <a key={l.label} href={l.to} target="_blank" rel="noreferrer" style={{ fontSize: "0.8rem", color: "var(--text3)", textDecoration: "none" }}

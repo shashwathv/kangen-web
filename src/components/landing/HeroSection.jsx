@@ -65,7 +65,7 @@ export default function HeroSection() {
 
         <p style={{ color: "var(--text2)", fontSize: "1rem", lineHeight: 1.75, maxWidth: 420 }}>
           Drop a photo of any kanji worksheet or textbook page.
-          KanGen reads it with a vision model, builds your cards,
+          Kanzen reads it with a vision model, builds your cards,
           and exports a ready-to-import Anki deck.
         </p>
       </div>

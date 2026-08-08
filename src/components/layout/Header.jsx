@@ -78,7 +78,7 @@ export default function Header({ theme, onToggleTheme }) {
             漢
           </div>
           <span style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "1.12rem", letterSpacing: "-0.01em", color: "var(--text1)" }}>
-            KanGen
+            Kanzen
           </span>
           <span style={{
             fontSize: "0.6rem", padding: "0.12rem 0.45rem",

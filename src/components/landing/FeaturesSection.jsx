@@ -67,7 +67,7 @@ export default function FeaturesSection() {
         fontWeight: 600, marginBottom: "0.6rem",
         fontFamily: "var(--font-mono)",
       }}>
-        Why KanGen
+        Why Kanzen
       </p>
       <h2 style={{
         fontFamily: "var(--font-display)",

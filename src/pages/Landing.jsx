@@ -67,7 +67,7 @@ export default function Landing() {
                 Try it free →
               </Link>
               <a
-                href="https://github.com/shashwathv/KanGen"
+                href="https://github.com/shashwathv/KanZen"
                 target="_blank" rel="noreferrer"
                 style={{
                   background: "var(--surface2)", color: "var(--text1)",
