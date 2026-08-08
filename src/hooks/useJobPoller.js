@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from "react";
-import { API_URL, STEPS } from "../constants";
+import { API_BASE, STEPS } from "../constants";
 
 export function useJobPoller({ jobId, state, onDone, onError, onStep }) {
   const pollRef = useRef(null);
@@ -15,7 +15,7 @@ export function useJobPoller({ jobId, state, onDone, onError, onStep }) {
 
     pollRef.current = setInterval(async () => {
       try {
-        const res = await fetch(`${API_URL}/jobs/${jobId}`);
+        const res = await fetch(`${API_BASE}/jobs/${jobId}`);
         const data = await res.json();
 
         if (data.status === "done") {
