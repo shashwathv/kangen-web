@@ -1,45 +1,70 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #09090B;
-  --surface: #111113;
-  --surface2: #18181B;
-  --surface3: #1F1F23;
-  --border: rgba(255,255,255,0.07);
-  --border-hover: rgba(255,255,255,0.14);
+  /* Ink & washi — a warm near-black instead of a cold digital black. */
+  --bg: #0B0A08;
+  --surface: #15130F;
+  --surface2: #1C1914;
+  --surface3: #26221B;
+  --border: rgba(245,238,224,0.08);
+  --border-hover: rgba(245,238,224,0.16);
+
   --jade: #00C896;
   --jade-dim: rgba(0,200,150,0.1);
   --jade-border: rgba(0,200,150,0.25);
+
+  /* Hanko seal — the vermillion of a name stamp, used sparingly as a second accent. */
+  --seal: #C8402E;
+  --seal-dim: rgba(200,64,46,0.1);
+  --seal-border: rgba(200,64,46,0.28);
+
   --flame: #FF4D00;
   --flame-dim: rgba(255,77,0,0.08);
   --flame-border: rgba(255,77,0,0.2);
-  --gold: #FFB800;
-  --text1: #FAFAFA;
-  --text2: #A1A1AA;
-  --text3: #52525B;
+
+  --gold: #E0A940;
+  --gold-dim: rgba(224,169,64,0.1);
+  --gold-border: rgba(224,169,64,0.26);
+
+  --text1: #F5F0E6;
+  --text2: #ACA294;
+  --text3: #6B6353;
+
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --shadow-card: 0 1px 3px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3);
 }
 
 [data-theme="light"] {
-  --bg: #F8F9FA;
-  --surface: #FFFFFF;
-  --surface2: #F1F3F5;
-  --surface3: #E9ECEF;
-  --border: rgba(0,0,0,0.07);
-  --border-hover: rgba(0,0,0,0.14);
-  --jade: #00A37A;
-  --jade-dim: rgba(0,163,122,0.08);
-  --jade-border: rgba(0,163,122,0.2);
-  --flame: #E03E00;
-  --flame-dim: rgba(224,62,0,0.07);
-  --flame-border: rgba(224,62,0,0.18);
-  --gold: #C98A00;
-  --text1: #0A0A0B;
-  --text2: #52525B;
-  --text3: #A1A1AA;
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.07);
+  --bg: #F6F2E7;
+  --surface: #FEFCF7;
+  --surface2: #F0EADB;
+  --surface3: #E4DCC6;
+  --border: rgba(35,26,10,0.08);
+  --border-hover: rgba(35,26,10,0.16);
+
+  --jade: #00805F;
+  --jade-dim: rgba(0,128,95,0.08);
+  --jade-border: rgba(0,128,95,0.2);
+
+  --seal: #A72E20;
+  --seal-dim: rgba(167,46,32,0.08);
+  --seal-border: rgba(167,46,32,0.22);
+
+  --flame: #C43600;
+  --flame-dim: rgba(196,54,0,0.07);
+  --flame-border: rgba(196,54,0,0.18);
+
+  --gold: #8C6212;
+  --gold-dim: rgba(140,98,18,0.08);
+  --gold-border: rgba(140,98,18,0.22);
+
+  --text1: #1D1811;
+  --text2: #5C5343;
+  --text3: #8F8570;
+
+  --shadow-card: 0 1px 3px rgba(35,26,10,0.06), 0 8px 24px rgba(35,26,10,0.07);
 }
 
 html, body { height: 100%; background: var(--bg); color: var(--text1); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background 0.3s ease, color 0.3s ease; }
@@ -48,6 +73,42 @@ html, body { height: 100%; background: var(--bg); color: var(--text1); font-fami
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--surface3); border-radius: 2px; }
+:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* Retrofitted responsive layer. Components are styled inline throughout,
+   which wins specificity over plain classes — these overrides need
+   !important to actually take effect at each breakpoint. */
+.header-menu-btn { display: none; }
+.upload-camera-btn { display: none; }
+
+@media (max-width: 720px) {
+  .header-nav { display: none !important; }
+  .header-status { display: none !important; }
+  .header-signin { display: none !important; }
+  .header-menu-btn { display: flex !important; }
+  .hero-cards { display: none !important; }
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .upload-camera-btn { display: flex !important; }
+}
+
+@media (max-width: 640px) {
+  .header-bar { padding: 0.9rem 1.1rem !important; }
+  .page-main { padding-left: 1.1rem !important; padding-right: 1.1rem !important; }
+  .login-main { padding-top: 2.5rem !important; }
+  .card-editor-row { flex-direction: column !important; }
+  .card-editor-kanji { width: 100% !important; height: 56px !important; font-size: 1.8rem !important; }
+}
+
+@media (max-width: 480px) {
+  .review-fields { grid-template-columns: 1fr !important; }
+  .success-stats { grid-template-columns: 1fr 1fr !important; }
+  .hero-eyebrow { font-size: 0.62rem !important; padding: 0.25rem 0.6rem !important; }
+}
 
 @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
