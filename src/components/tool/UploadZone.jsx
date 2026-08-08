@@ -43,6 +43,10 @@ export default function UploadZone({ files, onAddFiles, onRemoveFile, onSubmit, 
           boxShadow: isDragging ? "0 0 0 4px var(--jade-dim), var(--shadow-card)" : "var(--shadow-card)",
           position: "relative", overflow: "hidden",
           opacity: atLimit ? 0.65 : 1,
+          // Mobile browsers paint a translucent tap-highlight over any element
+          // with cursor:pointer on touch — since this box wraps the camera/
+          // choose-files buttons, that made the whole box flash on every tap.
+          WebkitTapHighlightColor: "transparent",
         }}
       >
         {!isDragging && (
@@ -87,6 +91,7 @@ export default function UploadZone({ files, onAddFiles, onRemoveFile, onSubmit, 
             fontFamily: "var(--font-body)", transition: "all 0.15s",
             boxShadow: "0 2px 8px rgba(0,200,150,0.3)",
             opacity: atLimit ? 0.6 : 1,
+            WebkitTapHighlightColor: "transparent",
           }}
             onMouseOver={e => { if (!atLimit) { e.currentTarget.style.opacity = "0.88"; e.currentTarget.style.transform = "translateY(-1px)"; } }}
             onMouseOut={e => { e.currentTarget.style.opacity = atLimit ? "0.6" : "1"; e.currentTarget.style.transform = "translateY(0)"; }}
@@ -106,6 +111,7 @@ export default function UploadZone({ files, onAddFiles, onRemoveFile, onSubmit, 
               fontFamily: "var(--font-body)", transition: "all 0.15s",
               alignItems: "center", gap: "0.4rem",
               opacity: atLimit ? 0.6 : 1,
+              WebkitTapHighlightColor: "transparent",
             }}
             onMouseOver={e => { if (!atLimit) e.currentTarget.style.borderColor = "var(--jade-border)"; }}
             onMouseOut={e => e.currentTarget.style.borderColor = "var(--border-hover)"}

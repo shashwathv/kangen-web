@@ -48,7 +48,7 @@ function CardEditor({ card, onChange, onRemove }) {
     <div className="card-editor-row" style={{
       background: "var(--surface)", border: "1px solid var(--border)",
       borderRadius: 10, padding: "1.1rem", marginBottom: "0.75rem",
-      display: "flex", gap: "1rem",
+      display: "flex", gap: "1rem", position: "relative",
     }}>
       <div className="card-editor-kanji" style={{
         "--kanji-font-size": fontSize,
@@ -72,6 +72,7 @@ function CardEditor({ card, onChange, onRemove }) {
       </div>
 
       <button
+        className="card-editor-remove"
         onClick={onRemove}
         title="Remove this card"
         style={{
