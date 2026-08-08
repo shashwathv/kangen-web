@@ -31,8 +31,18 @@ function CardField({ label, value, onChange, mono, area }) {
   );
 }
 
+// Boxes are sized for a single character. `card.kanji` is often a full
+// jukugo compound (2-4 characters) though, so scale the font down — and let
+// the box grow to fit — instead of letting long words wrap into a stack.
+const KANJI_FONT_SIZES = ["2.4rem", "2.4rem", "1.85rem", "1.4rem", "1.15rem"];
+function kanjiFontSize(text) {
+  const len = [...(text || "")].length;
+  return KANJI_FONT_SIZES[Math.min(len, KANJI_FONT_SIZES.length - 1)];
+}
+
 function CardEditor({ card, onChange, onRemove }) {
   const set = (field) => (value) => onChange({ ...card, [field]: value });
+  const fontSize = kanjiFontSize(card.kanji);
 
   return (
     <div className="card-editor-row" style={{
@@ -41,11 +51,13 @@ function CardEditor({ card, onChange, onRemove }) {
       display: "flex", gap: "1rem",
     }}>
       <div className="card-editor-kanji" style={{
-        fontSize: "2.4rem", fontWeight: 800, lineHeight: 1,
-        color: "var(--text1)", flexShrink: 0, width: 64,
+        "--kanji-font-size": fontSize,
+        fontSize, fontWeight: 800, lineHeight: 1.15,
+        color: "var(--text1)", flexShrink: 0, minWidth: 64,
         display: "flex", alignItems: "center", justifyContent: "center",
         background: "var(--surface2)", borderRadius: 8,
         border: "1px solid var(--border)",
+        padding: "0.5rem 0.6rem", whiteSpace: "nowrap",
       }}>
         {card.kanji}
       </div>

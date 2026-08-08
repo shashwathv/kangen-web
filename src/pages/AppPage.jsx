@@ -8,6 +8,7 @@ import SuccessView from "../components/tool/SuccessView";
 import ErrorView from "../components/tool/ErrorView";
 import { useJobPoller } from "../hooks/useJobPoller";
 import { supabase } from "../lib/supabase";
+import { compressImages } from "../lib/imageCompress";
 
 // framer-motion (used only by ProcessingView) is a sizeable chunk of JS —
 // load it on demand instead of blocking the initial /app bundle, so the
@@ -48,8 +49,9 @@ export default function AppPage() {
 
   useJobPoller({ jobId, state, onDone: handleExtracted, onError: handleError, onStep: setStepIndex });
 
-  const handleAddFiles = useCallback((newFiles) => {
-    setFiles(prev => [...prev, ...newFiles].slice(0, MAX_IMAGES_PER_UPLOAD));
+  const handleAddFiles = useCallback(async (newFiles) => {
+    const compressed = await compressImages(newFiles);
+    setFiles(prev => [...prev, ...compressed].slice(0, MAX_IMAGES_PER_UPLOAD));
   }, []);
 
   const handleRemoveFile = useCallback((idx) => {

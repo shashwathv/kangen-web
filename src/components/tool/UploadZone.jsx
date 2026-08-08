@@ -21,6 +21,14 @@ export default function UploadZone({ files, onAddFiles, onRemoveFile, onSubmit, 
 
   return (
     <div style={{ animation: "fadeUp 0.6s 0.1s cubic-bezier(0.16,1,0.3,1) both" }}>
+      {/* Rendered outside the clickable box below: input.click() dispatches a
+          real bubbling click event, and if these lived inside that box it would
+          re-trigger the box's own onClick right after opening the picker. */}
+      <input ref={inputRef} type="file" accept="image/*,.heic,.heif" multiple style={{ display: "none" }}
+        onChange={handlePicked} />
+      <input ref={cameraInputRef} type="file" accept="image/*" capture="environment" style={{ display: "none" }}
+        onChange={handlePicked} />
+
       <div
         onDrop={handleDrop}
         onDragOver={(e) => { e.preventDefault(); if (!atLimit) setIsDragging(true); }}
@@ -46,11 +54,6 @@ export default function UploadZone({ files, onAddFiles, onRemoveFile, onSubmit, 
             pointerEvents: "none",
           }} />
         )}
-
-        <input ref={inputRef} type="file" accept="image/*,.heic,.heif" multiple style={{ display: "none" }}
-          onChange={handlePicked} />
-        <input ref={cameraInputRef} type="file" accept="image/*" capture="environment" style={{ display: "none" }}
-          onChange={handlePicked} />
 
         <div style={{
           width: 52, height: 52, margin: "0 auto 1.25rem",
